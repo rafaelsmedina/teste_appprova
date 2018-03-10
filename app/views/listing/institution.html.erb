@@ -10,15 +10,16 @@
   </thead>
 
   <tbody>
-
     <% @courses.each do |course| %>
       <tr>
       	<td><%= link_to course.institution.name, listing_institution_path(course.institution.id) %></td>
-      	<td><%= link_to course.name, listing_course_path(course.name) %></td>
-      	<td><%= link_to course.institution.grade, listing_institution_grade_path(course.institution.grade) %></td>
-      	<td><%= link_to course.grade, listing_course_grade_path(course.grade) %></td>
+        <td><%= link_to course.name, listing_course_path(course.name) %></td>
+        <td><%= link_to course.institution.grade, listing_institution_grade_path(course.institution.grade) %></td>
+        <td><%= link_to course.grade, listing_course_grade_path(course.grade) %></td>
       	<td><%= link_to course.grade, listing_index_path %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to '<', listing_index_path %>
