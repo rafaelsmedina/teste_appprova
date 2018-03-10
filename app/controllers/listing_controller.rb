@@ -8,7 +8,11 @@ class ListingController < ApplicationController
   	param = params[:id]
   	@courses = Course.joins(:institution).where(institutions: {id: param}).order('institutions.grade DESC')
   	@groups = Student.group(:course_id).average(:grade)
-    @value = Institution.where(id: param).first.name
+    if Institution.where(id: param).first
+      @value = Institution.where(id: param).first.name
+    else
+      @value = ''
+    end
   end
 
   def course
@@ -40,9 +44,7 @@ class ListingController < ApplicationController
   	array = []
 
   	@groups.each do |group|
-  		puts 'oi', group[1].to_i, param
   		if group[1].to_i == param.to_i
-  			puts 'entray'
   			array.push(group[0])
   		end
   	end
