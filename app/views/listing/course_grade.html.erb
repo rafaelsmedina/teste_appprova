@@ -10,14 +10,17 @@
   </thead>
 
   <tbody>
-
     <% @courses.each do |course| %>
       <tr>
-      	<td><%= link_to course.institution.name, listing_institution_path(course.institution.id) %></td>
-      	<td><%= link_to course.name, listing_course_path(course.name) %></td>
-      	<td><%= link_to course.institution.grade, listing_institution_grade_path(course.institution.grade) %></td>
-      	<td><%= link_to course.grade, listing_course_grade_path(course.grade) %></td>
-      	<td><%= link_to course.grade, listing_index_path %></td>
+        <td><%= link_to course.institution.name, listing_institution_path(course.institution.id) %></td>
+        <td><%= link_to course.name, listing_course_path(course.name) %></td>
+        <td><%= link_to course.institution.grade, listing_institution_grade_path(course.institution.grade) %></td>
+        <td><%= link_to course.grade, listing_course_grade_path(course.grade) %></td>
+        <% @groups.each do |group| %>
+          <% if group[0] == course.id %>
+            <td><%= link_to group[1], listing_average_grade_path(group[1]) %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
