@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :grade %>
-    <%= form.number_field :grade, id: :course_grade %>
+    <%= form.number_field :grade, id: :course_grade, min: 1 %>
   </div>
 
   <div class="field">
     <%= form.label :institution_id %>
-    <%= form.text_field :institution_id, id: :course_institution_id %>
+    <%= form.select :institution_id, @institutions.collect { |institution| [institution.name, institution.id] } %>
   </div>
 
   <div class="actions">
