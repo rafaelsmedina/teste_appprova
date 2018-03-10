@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TesteAppprova</title>
+    <title>Sistema de verificação do ENADE</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,11 +9,15 @@
   </head>
 
   <body>
-  
-	<%= link_to 'Home', listing_index_path %>
-	<%= link_to 'Manage Institutions', institutions_path %>
-	<%= link_to 'Manage Courses', courses_path %>
-	<%= link_to 'Manage Students', students_path %>
-    <%= yield %>
+    <div class='menu'>
+	    <%= link_to 'Home', listing_index_path %>
+	    <%= link_to 'Manage Institutions', institutions_path %>
+	    <%= link_to 'Manage Courses', courses_path %>
+      <%= link_to 'Manage Students', students_path %>
+    </div>
+    <div class='elements'>
+      <%= yield %>
+    </div>
+
   </body>
 </html>

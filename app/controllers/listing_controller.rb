@@ -8,24 +8,28 @@ class ListingController < ApplicationController
   	param = params[:id]
   	@courses = Course.joins(:institution).where(institutions: {id: param}).order('institutions.grade DESC')
   	@groups = Student.group(:course_id).average(:grade)
+    @value = Institution.where(id: param).first.name
   end
 
   def course
   	param = params[:id]
   	@courses = Course.joins(:institution).where(courses: {name: param}).order('institutions.grade DESC')
   	@groups = Student.group(:course_id).average(:grade)
+    @value = param
   end
 
   def institution_grade
   	param = params[:id]
   	@courses = Course.joins(:institution).where(institutions: {grade: param}).order('institutions.grade DESC')
   	@groups = Student.group(:course_id).average(:grade)
+    @value = param
   end
 
   def course_grade
   	param = params[:id]
   	@courses = Course.joins(:institution).where(courses: {grade: param}).order('institutions.grade DESC')
   	@groups = Student.group(:course_id).average(:grade)
+    @value = param
   end
 
   def average_grade
@@ -44,5 +48,6 @@ class ListingController < ApplicationController
   	end
 
   	@courses = Course.joins(:institution).where(courses: {id: array}).order('institutions.grade DESC')
+    @value = param
   end
 end

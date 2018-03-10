@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+.menu {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.elements {
+
+	padding: 10px;
+}
+
+.elements td {
+
+	border-bottom: 1px solid black;
+}
+
+.elements th {
+
+	border-bottom: 1px solid black;
+}
+.elements table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+td:nth-child(1) {  
+ 	text-align: left;
+}
